@@ -33,6 +33,12 @@ jobs:
           cd source
           flutter pub get
 
+      - name: Generate code
+        run: |
+          cd source
+          dart run build_runner build --delete-conflicting-outputs || true
+          dart run slang
+
       - name: Build APK
         run: |
           cd source
